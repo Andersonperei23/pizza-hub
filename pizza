@@ -13,6 +13,22 @@
 local UIS = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local Player = game:GetService("Players").LocalPlayer
+local CoreGui = game:GetService("CoreGui")
+local ContentProvider = game:GetService("ContentProvider")
+
+-- Fallback para gethui se não existir
+local function getGuiParent()
+    if gethui then
+        return gethui()
+    elseif syn and syn.protect_gui then
+        local gui = Instance.new("ScreenGui")
+        syn.protect_gui(gui)
+        gui.Parent = CoreGui
+        return gui.Parent
+    else
+        return Player:WaitForChild("PlayerGui")
+    end
+end
 
 local function Create(class, props, children)
 	local obj = Instance.new(class)
@@ -23,6 +39,8 @@ end
 
 local Library = {}
 Library.__index = Library
+Library.ToggleKey = Enum.KeyCode.RightControl -- Tecla padrão para toggle
+Library.Open = true -- Estado inicial da UI
 
 function Library.SettingManager()
 	local Manager = {}
@@ -54,11 +72,14 @@ end
 
 function Library:New(config)
 	local self = setmetatable({}, Library)
+	self.Open = true
 
+	local guiParent = getGuiParent()
+	
 	self.Gui = Create("ScreenGui", {
 		Name = "DcusHub_v2.3 UI",
 		ResetOnSpawn = false,
-		Parent = gethui()
+		Parent = guiParent
 	})
 
 	self.Main = Create("Frame", {
@@ -970,12 +991,10 @@ function Library:New(config)
 	-- ========================
 	-- FLOATING ICON (Toggle UI)
 	-- ========================
-	local CoreGui = game:GetService("CoreGui")
-	local ContentProvider = game:GetService("ContentProvider")
 
 	local FloatingIconGui = Instance.new("ScreenGui")
 	FloatingIconGui.Name = "PizzaHub_FloatingIcon"
-	FloatingIconGui.Parent = CoreGui
+	FloatingIconGui.Parent = getGuiParent()
 	FloatingIconGui.ResetOnSpawn = false
 
 	local toggleBtn = Instance.new("ImageButton")
