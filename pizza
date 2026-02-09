@@ -86,24 +86,24 @@ function Library:New(config)
 		Size = UDim2.fromOffset(550, 380),
 		Position = UDim2.fromScale(0.5, 0.5),
 		AnchorPoint = Vector2.new(0.5, 0.5),
-		BackgroundColor3 = Color3.fromRGB(15, 15, 20),
+		BackgroundColor3 = Color3.fromRGB(20, 14, 10),
 		BorderSizePixel = 0,
 		Parent = self.Gui
 	}, {
 		Create("UICorner", {CornerRadius = UDim.new(0, 12)}),
-		Create("UIStroke", {Color = Color3.fromRGB(45, 45, 60), Thickness = 1.5})
+		Create("UIStroke", {Color = Color3.fromRGB(100, 60, 30), Thickness = 1.5})
 	})
 
 	self.Top = Create("Frame", {
 		Size = UDim2.new(1, 0, 0, 55),
-		BackgroundColor3 = Color3.fromRGB(20, 20, 28),
+		BackgroundColor3 = Color3.fromRGB(25, 18, 12),
 		Parent = self.Main
 	}, {
 		Create("UICorner", {CornerRadius = UDim.new(0, 12)}),
 		Create("Frame", {
 			Size = UDim2.new(1, 0, 0, 1),
 			Position = UDim2.new(0, 0, 1, -1),
-			BackgroundColor3 = Color3.fromRGB(45, 45, 60),
+			BackgroundColor3 = Color3.fromRGB(100, 60, 30),
 			BorderSizePixel = 0,
 		})
 	})
@@ -124,7 +124,7 @@ function Library:New(config)
 		Text = config.Footer or "Premium Interface • v2.3",
 		Font = Enum.Font.GothamMedium,
 		TextSize = 11,
-		TextColor3 = Color3.fromRGB(100, 100, 130),
+		TextColor3 = Color3.fromRGB(140, 110, 80),
 		TextXAlignment = "Left",
 		BackgroundTransparency = 1,
 		Size = UDim2.new(0, 200, 0, 20),
@@ -148,11 +148,11 @@ function Library:New(config)
 	self.Sidebar = Create("Frame", {
 		Size = UDim2.new(0, 150, 1, -16),
 		Position = UDim2.fromOffset(10, 8),
-		BackgroundColor3 = Color3.fromRGB(20, 20, 28),
+		BackgroundColor3 = Color3.fromRGB(25, 18, 12),
 		Parent = self.Container
 	}, {
 		Create("UICorner", {CornerRadius = UDim.new(0, 10)}),
-		Create("UIStroke", {Color = Color3.fromRGB(45, 45, 60), Thickness = 1}),
+		Create("UIStroke", {Color = Color3.fromRGB(100, 60, 30), Thickness = 1}),
 	})
 
 	self.TabHighlight = Create("Frame", {
@@ -252,7 +252,7 @@ function Library:New(config)
 		-- 通知本体の作成
 		local Notif = Create("Frame", {
 			Size = UDim2.new(1, 0, 0, 20),
-			BackgroundColor3 = Color3.fromRGB(20, 20, 28),
+			BackgroundColor3 = Color3.fromRGB(25, 18, 12),
 			BackgroundTransparency = 1, 
 			Parent = Holder
 		}, {
@@ -276,7 +276,7 @@ function Library:New(config)
 		local Divider = Create("Frame", {
 			Size = UDim2.new(1, -24, 0, 1),
 			Position = UDim2.fromOffset(12, 26),
-			BackgroundColor3 = Color3.fromRGB(45, 45, 60),
+			BackgroundColor3 = Color3.fromRGB(100, 60, 30),
 			BorderSizePixel = 0,
 			BackgroundTransparency = 1,
 			Parent = Notif
@@ -335,17 +335,17 @@ function Library:New(config)
 
 		local TabBg = Create("Frame", {
 			Size = UDim2.new(1, 0, 0, 34),
-			BackgroundColor3 = Color3.fromRGB(25, 25, 35),
+			BackgroundColor3 = Color3.fromRGB(30, 22, 15),
 			Parent = self.TabHolder
 		}, {
 			Create("UICorner", {CornerRadius = UDim.new(0, 8)}),
-			Create("UIStroke", {Color = Color3.fromRGB(45, 45, 60), Thickness = 1})
+			Create("UIStroke", {Color = Color3.fromRGB(100, 60, 30), Thickness = 1})
 		})
 
 		local Dot = Create("Frame", {
 			Size = UDim2.fromOffset(4, 4),
 			Position = UDim2.new(0, 10, 0.5, -2),
-			BackgroundColor3 = Color3.fromRGB(150, 150, 170),
+			BackgroundColor3 = Color3.fromRGB(180, 150, 120),
 			Parent = TabBg
 		}, { Create("UICorner", {CornerRadius = UDim.new(1, 0)}) })
 
@@ -353,7 +353,7 @@ function Library:New(config)
 			Text = name,
 			Font = Enum.Font.GothamMedium,
 			TextSize = 13,
-			TextColor3 = Color3.fromRGB(150, 150, 170),
+			TextColor3 = Color3.fromRGB(180, 150, 120),
 			BackgroundTransparency = 1,
 			Size = UDim2.fromScale(1, 1),
 			Parent = TabBg
@@ -397,8 +397,8 @@ function Library:New(config)
 			for _, p in pairs(self.Pages:GetChildren()) do if p:IsA("ScrollingFrame") then p.Visible = false end end
 			for _, bg in pairs(self.TabHolder:GetChildren()) do
 				if bg:IsA("Frame") and bg:FindFirstChild("Frame") then
-					TweenService:Create(bg:FindFirstChildOfClass("TextButton"), TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(150, 150, 170)}):Play()
-					TweenService:Create(bg:FindFirstChild("Frame"), TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(150, 150, 170)}):Play()
+					TweenService:Create(bg:FindFirstChildOfClass("TextButton"), TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(180, 150, 120)}):Play()
+					TweenService:Create(bg:FindFirstChild("Frame"), TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(180, 150, 120)}):Play()
 				end
 			end
 			Page.Visible = true
@@ -412,11 +412,11 @@ function Library:New(config)
 
 			local BtnBg = Create("Frame", {
 				Size = UDim2.new(1, 0, 0, 45),
-				BackgroundColor3 = Color3.fromRGB(22, 22, 30),
+				BackgroundColor3 = Color3.fromRGB(28, 20, 14),
 				Parent = Page
 			}, {
 				Create("UICorner", {CornerRadius = UDim.new(0, 8)}),
-				Create("UIStroke", {Color = Color3.fromRGB(45, 45, 60), Thickness = 1})
+				Create("UIStroke", {Color = Color3.fromRGB(100, 60, 30), Thickness = 1})
 			})
 
 			Create("TextLabel", {
@@ -434,11 +434,11 @@ function Library:New(config)
 			local RunBadge = Create("Frame", {
 				Size = UDim2.fromOffset(45, 22),
 				Position = UDim2.new(1, -55, 0.5, -11),
-				BackgroundColor3 = Color3.fromRGB(40, 40, 55),
+				BackgroundColor3 = Color3.fromRGB(50, 35, 25),
 				Parent = BtnBg
 			}, {
 				Create("UICorner", {CornerRadius = UDim.new(0, 6)}),
-				Create("UIStroke", {Color = Color3.fromRGB(60, 60, 80), Thickness = 1}),
+				Create("UIStroke", {Color = Color3.fromRGB(80, 55, 35), Thickness = 1}),
 				Create("TextLabel", {
 					Text = "Run",
 					Font = Enum.Font.GothamBold,
@@ -457,8 +457,8 @@ function Library:New(config)
 				TweenService:Create(RunBadge, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(255, 140, 50)}):Play()
 			end)
 			Hit.MouseButton1Up:Connect(function()
-				TweenService:Create(BtnBg, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(22, 22, 30)}):Play()
-				TweenService:Create(RunBadge, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(40, 40, 55)}):Play()
+				TweenService:Create(BtnBg, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(28, 20, 14)}):Play()
+				TweenService:Create(RunBadge, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(50, 35, 25)}):Play()
 				callback()
 			end)
 		end
@@ -470,11 +470,11 @@ function Library:New(config)
 
 			local TglBg = Create("Frame", {
 				Size = UDim2.new(1, 0, 0, 45),
-				BackgroundColor3 = Color3.fromRGB(22, 22, 30),
+				BackgroundColor3 = Color3.fromRGB(28, 20, 14),
 				Parent = Page
 			}, {
 				Create("UICorner", {CornerRadius = UDim.new(0, 8)}),
-				Create("UIStroke", {Color = Color3.fromRGB(45, 45, 60), Thickness = 1})
+				Create("UIStroke", {Color = Color3.fromRGB(100, 60, 30), Thickness = 1})
 			})
 
 			Create("TextLabel", {
@@ -492,11 +492,11 @@ function Library:New(config)
 			local Switch = Create("Frame", {
 				Size = UDim2.fromOffset(40, 20),
 				Position = UDim2.new(1, -50, 0.5, -10),
-				BackgroundColor3 = state and Color3.fromRGB(255, 140, 50) or Color3.fromRGB(40, 40, 55),
+				BackgroundColor3 = state and Color3.fromRGB(255, 140, 50) or Color3.fromRGB(50, 35, 25),
 				Parent = TglBg
 			}, {
 				Create("UICorner", {CornerRadius = UDim.new(1, 0)}),
-				Create("UIStroke", {Color = Color3.fromRGB(60, 60, 80), Thickness = 1})
+				Create("UIStroke", {Color = Color3.fromRGB(80, 55, 35), Thickness = 1})
 			})
 
 			local Knob = Create("Frame", {
@@ -508,7 +508,7 @@ function Library:New(config)
 
 			local function updateView(val)
 				TweenService:Create(Switch, TweenInfo.new(0.2), {
-					BackgroundColor3 = val and Color3.fromRGB(255, 140, 50) or Color3.fromRGB(40, 40, 55)
+					BackgroundColor3 = val and Color3.fromRGB(255, 140, 50) or Color3.fromRGB(50, 35, 25)
 				}):Play()
 				TweenService:Create(Knob, TweenInfo.new(0.2), {
 					Position = val and UDim2.fromOffset(22, 2) or UDim2.fromOffset(2, 2)
@@ -542,11 +542,11 @@ function Library:New(config)
 
 			local SliderBg = Create("Frame", {
 				Size = UDim2.new(1, 0, 0, 50),
-				BackgroundColor3 = Color3.fromRGB(22, 22, 30),
+				BackgroundColor3 = Color3.fromRGB(28, 20, 14),
 				Parent = Page
 			}, {
 				Create("UICorner", {CornerRadius = UDim.new(0, 8)}),
-				Create("UIStroke", {Color = Color3.fromRGB(45, 45, 60), Thickness = 1})
+				Create("UIStroke", {Color = Color3.fromRGB(100, 60, 30), Thickness = 1})
 			})
 
 			local Label = Create("TextLabel", {
@@ -576,7 +576,7 @@ function Library:New(config)
 			local Tray = Create("Frame", {
 				Size = UDim2.new(1, -30, 0, 4),
 				Position = UDim2.new(0, 15, 1, -12),
-				BackgroundColor3 = Color3.fromRGB(40, 40, 55),
+				BackgroundColor3 = Color3.fromRGB(50, 35, 25),
 				Parent = SliderBg
 			}, { Create("UICorner", {CornerRadius = UDim.new(1, 0)}) })
 
@@ -590,7 +590,7 @@ function Library:New(config)
 				Size = UDim2.fromOffset(8, 8),
 				AnchorPoint = Vector2.new(0.5, 0.5),
 				Position = UDim2.fromScale((default - min) / (max - min), 0.5),
-				BackgroundColor3 = Color3.fromRGB(22, 22, 30),
+				BackgroundColor3 = Color3.fromRGB(28, 20, 14),
 				Parent = Tray
 			}, { 
 				Create("UICorner", {CornerRadius = UDim.new(0, 4)}),
@@ -623,12 +623,12 @@ function Library:New(config)
 			local expanded = false
 			local DropdownBg = Create("Frame", {
 				Size = UDim2.new(1, 0, 0, 45),
-				BackgroundColor3 = Color3.fromRGB(22, 22, 30),
+				BackgroundColor3 = Color3.fromRGB(28, 20, 14),
 				ClipsDescendants = true,
 				Parent = Page
 			}, {
 				Create("UICorner", {CornerRadius = UDim.new(0, 8)}),
-				Create("UIStroke", {Color = Color3.fromRGB(45, 45, 60), Thickness = 1})
+				Create("UIStroke", {Color = Color3.fromRGB(100, 60, 30), Thickness = 1})
 			})
 
 			local Header = Create("TextButton", {
@@ -654,7 +654,7 @@ function Library:New(config)
 				Text = "▼",
 				Font = Enum.Font.GothamBold,
 				TextSize = 12,
-				TextColor3 = Color3.fromRGB(100, 100, 130),
+				TextColor3 = Color3.fromRGB(140, 110, 80),
 				BackgroundTransparency = 1,
 				Position = UDim2.new(1, -35, 0, 0),
 				Size = UDim2.new(0, 25, 1, 0),
@@ -703,7 +703,7 @@ function Library:New(config)
 
 				for _, o in pairs(OptionHolder:GetChildren()) do
 					if o:IsA("TextButton") then
-						TweenService:Create(o, TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(150, 150, 170)}):Play()
+						TweenService:Create(o, TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(180, 150, 120)}):Play()
 					end
 				end
 				TweenService:Create(btn, TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
@@ -716,7 +716,7 @@ function Library:New(config)
 					Text = v,
 					Font = Enum.Font.GothamMedium,
 					TextSize = 13,
-					TextColor3 = Color3.fromRGB(150, 150, 170),
+					TextColor3 = Color3.fromRGB(180, 150, 120),
 					Size = UDim2.new(1, 0, 0, 30),
 					BackgroundTransparency = 1,
 					LayoutOrder = i,
@@ -747,12 +747,12 @@ function Library:New(config)
 
 			local LabelBg = Create("Frame", {
 				Size = UDim2.new(1, 0, 0, 30),
-				BackgroundColor3 = Color3.fromRGB(22, 22, 30),
+				BackgroundColor3 = Color3.fromRGB(28, 20, 14),
 				BackgroundTransparency = 0.5,
 				Parent = Page
 			}, {
 				Create("UICorner", {CornerRadius = UDim.new(0, 8)}),
-				Create("UIStroke", {Color = Color3.fromRGB(45, 45, 60), Thickness = 1, Transparency = 0.5})
+				Create("UIStroke", {Color = Color3.fromRGB(100, 60, 30), Thickness = 1, Transparency = 0.5})
 			})
 
 			local Text = Create("TextLabel", {
@@ -787,11 +787,11 @@ function Library:New(config)
 
 			local SectionBg = Create("Frame", {
 				Size = UDim2.new(1, 0, 0, 65), 
-				BackgroundColor3 = Color3.fromRGB(22, 22, 30),
+				BackgroundColor3 = Color3.fromRGB(28, 20, 14),
 				Parent = Page
 			}, {
 				Create("UICorner", {CornerRadius = UDim.new(0, 8)}),
-				Create("UIStroke", {Color = Color3.fromRGB(45, 45, 60), Thickness = 1})
+				Create("UIStroke", {Color = Color3.fromRGB(100, 60, 30), Thickness = 1})
 			})
 
 			local Title = Create("TextLabel", {
@@ -809,7 +809,7 @@ function Library:New(config)
 			local Divider = Create("Frame", {
 				Size = UDim2.new(1, -30, 0, 1),
 				Position = UDim2.fromOffset(15, 30),
-				BackgroundColor3 = Color3.fromRGB(45, 45, 60),
+				BackgroundColor3 = Color3.fromRGB(100, 60, 30),
 				BorderSizePixel = 0,
 				Parent = SectionBg
 			})
@@ -818,7 +818,7 @@ function Library:New(config)
 				Text = content,
 				Font = Enum.Font.GothamMedium,
 				TextSize = 13,
-				TextColor3 = Color3.fromRGB(150, 150, 170),
+				TextColor3 = Color3.fromRGB(180, 150, 120),
 				BackgroundTransparency = 1,
 				Position = UDim2.fromOffset(15, 38),
 				Size = UDim2.new(1, -30, 0, 0),
@@ -849,11 +849,11 @@ function Library:New(config)
 
 			local BindBg = Create("Frame", {
 				Size = UDim2.new(1, 0, 0, 40),
-				BackgroundColor3 = Color3.fromRGB(22, 22, 30),
+				BackgroundColor3 = Color3.fromRGB(28, 20, 14),
 				Parent = Page
 			}, {
 				Create("UICorner", {CornerRadius = UDim.new(0, 8)}),
-				Create("UIStroke", {Color = Color3.fromRGB(45, 45, 60), Thickness = 1})
+				Create("UIStroke", {Color = Color3.fromRGB(100, 60, 30), Thickness = 1})
 			})
 
 			local Label = Create("TextLabel", {
@@ -871,11 +871,11 @@ function Library:New(config)
 			local BindDisplay = Create("Frame", {
 				Size = UDim2.fromOffset(60, 24),
 				Position = UDim2.new(1, -75, 0.5, -12),
-				BackgroundColor3 = Color3.fromRGB(30, 30, 40),
+				BackgroundColor3 = Color3.fromRGB(40, 28, 20),
 				Parent = BindBg
 			}, {
 				Create("UICorner", {CornerRadius = UDim.new(0, 6)}),
-				Create("UIStroke", {Color = Color3.fromRGB(60, 60, 80), Thickness = 1})
+				Create("UIStroke", {Color = Color3.fromRGB(80, 55, 35), Thickness = 1})
 			})
 
 			local BindText = Create("TextLabel", {
@@ -902,13 +902,13 @@ function Library:New(config)
 					listening = false
 					default = input.KeyCode
 					BindText.Text = input.KeyCode.Name
-					TweenService:Create(BindDisplay:FindFirstChildOfClass("UIStroke"), TweenInfo.new(0.2), {Color = Color3.fromRGB(60, 60, 80)}):Play()
+					TweenService:Create(BindDisplay:FindFirstChildOfClass("UIStroke"), TweenInfo.new(0.2), {Color = Color3.fromRGB(80, 55, 35)}):Play()
 					onChange(input.KeyCode) 
 				elseif not listening and input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == default then
 					local t = TweenService:Create(BindDisplay, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(255, 140, 50)})
 					t:Play()
 					t.Completed:Connect(function()
-						TweenService:Create(BindDisplay, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(30, 30, 40)}):Play()
+						TweenService:Create(BindDisplay, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(40, 28, 20)}):Play()
 					end)
 					callback()
 				end
@@ -922,11 +922,11 @@ function Library:New(config)
 
 			local BoxBg = Create("Frame", {
 				Size = UDim2.new(1, 0, 0, 40),
-				BackgroundColor3 = Color3.fromRGB(22, 22, 30),
+				BackgroundColor3 = Color3.fromRGB(28, 20, 14),
 				Parent = Page
 			}, {
 				Create("UICorner", {CornerRadius = UDim.new(0, 8)}),
-				Create("UIStroke", {Color = Color3.fromRGB(45, 45, 60), Thickness = 1})
+				Create("UIStroke", {Color = Color3.fromRGB(100, 60, 30), Thickness = 1})
 			})
 
 			local Label = Create("TextLabel", {
@@ -944,12 +944,12 @@ function Library:New(config)
 			local InputHolder = Create("Frame", {
 				Size = UDim2.new(0, 60, 0, 26), 
 				Position = UDim2.new(1, -75, 0.5, -13),
-				BackgroundColor3 = Color3.fromRGB(15, 15, 20),
+				BackgroundColor3 = Color3.fromRGB(20, 14, 10),
 				ClipsDescendants = true,
 				Parent = BoxBg
 			}, {
 				Create("UICorner", {CornerRadius = UDim.new(0, 6)}),
-				Create("UIStroke", {Color = Color3.fromRGB(50, 50, 70), Thickness = 1})
+				Create("UIStroke", {Color = Color3.fromRGB(60, 45, 30), Thickness = 1})
 			})
 
 			local Input = Create("TextBox", {
@@ -979,7 +979,7 @@ function Library:New(config)
 					Size = UDim2.new(0, 60, 0, 26),
 					Position = UDim2.new(1, -75, 0.5, -13)
 				}):Play()
-				TweenService:Create(InputHolder:FindFirstChildOfClass("UIStroke"), TweenInfo.new(0.4), {Color = Color3.fromRGB(50, 50, 70)}):Play()
+				TweenService:Create(InputHolder:FindFirstChildOfClass("UIStroke"), TweenInfo.new(0.4), {Color = Color3.fromRGB(60, 45, 30)}):Play()
 				TweenService:Create(Label, TweenInfo.new(0.4), {TextTransparency = 0}):Play()
 				callback(Input.Text, enterPressed)
 			end)
